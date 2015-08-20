@@ -57,7 +57,9 @@ var FeedView = React.createClass({
 
     return (
       <section className={classes}>
-        {this.state.tracks.map(function(track) {
+        {this.state.tracks.sort(function(a, b) {
+            return new Date(b.postedOn) - new Date(a.postedOn)
+        }).map(function(track) {
 
           var me      = this.state.currentTrack.id === track.id
 

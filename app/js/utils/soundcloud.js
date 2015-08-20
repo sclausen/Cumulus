@@ -91,6 +91,7 @@ SoundCloud.prototype.fetchFeed = function() {
       return resp.collection
     })
     .map(function(item) {
+      item.origin.postedOn = item.created_at;
       return item.origin
     })
     .bind(this)
